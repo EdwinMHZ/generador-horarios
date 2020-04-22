@@ -1,0 +1,65 @@
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body{
+    background: #bbbbbb;
+    font-family: 'Crimson Pro', serif;
+    font-size: 16px;
+
+}
+
+.contenedor{
+    background-color: white;
+    width: 50%;
+    height: 600px;
+    /*max-width: 1000px;*/
+    margin:auto;
+    overflow: scroll;
+    border: 3px solid #7e7e7e;
+    padding: 30px;
+}
+
+.contenedor div{
+    padding: 15px;
+}
+
+.horarios{
+    margin-top: 20px;
+    width: 100%;
+    border-style: solid;
+    border-radius: 3px;
+}
+
+#btn_visualizar:hover,.btn_agregar,.btn_quitar{
+    cursor: pointer;
+}
+
+.btn_agregar{
+    background: -o-linear-gradient(rgba(50, 50, 50, .5), rgba(50, 50, 50, .75), rgb(50, 50, 50));
+	background: -moz-linear-gradient(rgba(50, 50, 50, .5), rgba(50, 50, 50, .75), rgb(50, 50, 50));
+	background: -webkit-linear-gradient(rgba(50, 50, 50, .5), rgba(50, 50, 50, .75), rgb(50, 50, 50));
+	background: linear-gradient(rgba(50, 50, 50, .5), rgba(50, 50, 50, .75), rgb(50, 50, 50));
+    border:none;
+    background-size: cover;
+    background-image: url("img/plus.svg");
+    height: 40px;
+    width: 40px;
+}
+.btn_quitar{
+    background: -o-linear-gradient(rgba(50, 50, 50, .5), rgba(50, 50, 50, .75), rgb(50, 50, 50));
+	background: -moz-linear-gradient(rgba(50, 50, 50, .5), rgba(50, 50, 50, .75), rgb(50, 50, 50));
+	background: -webkit-linear-gradient(rgba(50, 50, 50, .5), rgba(50, 50, 50, .75), rgb(50, 50, 50));
+	background: linear-gradient(rgba(50, 50, 50, .5), rgba(50, 50, 50, .75), rgb(50, 50, 50));
+    
+    border:none;
+    background-size: cover;
+    background-image: url("img/minus.svg");
+    height: 40px;
+    width: 40px;
+}
+.form_generar{
+    text-align: center;
+}
