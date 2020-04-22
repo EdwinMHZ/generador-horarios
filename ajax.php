@@ -5,14 +5,14 @@ include "conexion.php";
     $materia=$_POST["materia"];
     //echo "$materia";
     if($accion==0){
-        $consulta="select * from temporal where nombre='$materia'";
+        $consulta="select * from Temporal where Nombre='$materia'";
         $resultado = mysqli_query($connection,$consulta);
         $columnas = mysqli_num_rows($resultado);
         
         if($columnas>=1){
             echo "Esta materia ya ha sido agregada";
         }else{
-            $consulta="insert into temporal (nombre) values('$materia')";
+            $consulta="insert into Temporal (Nombre) values('$materia')";
             $result = mysqli_query($connection,$consulta);
             if(!$resultado) 
             {
@@ -26,7 +26,7 @@ include "conexion.php";
         }
     }else{
         //echo "PROBANDO";
-        $consulta="delete from temporal where nombre='$materia'";
+        $consulta="delete from Temporal where Nombre='$materia'";
         $resultado = mysqli_query($connection,$consulta);
         if(!$resultado){
             echo "No se ha podido realizar la consulta";

@@ -61,7 +61,7 @@
                     $nivel=$_POST["nivel"];
                     if($nivel==null) $nivel=1;
                     echo "<h2>Unidades de aprendizaje del nivel $nivel</h2>";
-                    $consulta="select nombre from materia where nivel=$nivel";
+                    $consulta="select nombre from Materia where Periodo=$nivel";
                     $result = mysqli_query($connection,$consulta);
                     if(!$result) 
                     {
@@ -86,7 +86,7 @@
             <?php
                 include "conexion.php";
                 
-                $consulta="select nombre from temporal";
+                $consulta="select nombre from Temporal";
                 $result = mysqli_query($connection,$consulta);
                 if(!$result) 
                 {
