@@ -10,7 +10,7 @@ if(!$connection)
     echo "No se ha podido conectar con el servidor" . mysql_error();
 }
 
-$datab = "materias_prueba";
+$datab = "Horario";
 $db = mysqli_select_db($connection,$datab);
 if (!$db)
 {
