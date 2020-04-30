@@ -110,7 +110,7 @@
 
         </div>
         <div class="form_generar">
-            <form>
+            <form action="generar.php">
                 <input type="submit" class="btn_generar" value="Generar Horarios">
             </form>
         </div>
