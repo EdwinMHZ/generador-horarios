@@ -64,11 +64,11 @@ body{
     text-align: center;
 }
 
-.btn_generar,.btn_guardar{
+.btn_generar,.btn_guardar,.btn_eliminarH{
     text-align: center;
     
 }
-.tabla_horario{
+.tabla_horario, .notificaciones{
     text-align: center;
     
 }
@@ -86,10 +86,14 @@ body{
     padding: 7px;
 }
 
-.btn_generar:hover,.btn_guardar button:hover{
+.btn_generar:hover,.btn_guardar button:hover,
+.btn_eliminarH button:hover,#btn_inscribir:hover{
     cursor: pointer;
 }
-.btn_guardar button{
+.btn_guardar button,.btn_eliminarH button,#btn_inscribir{
     border-radius: 3px;
     padding: 5px;
+}
+.btn_inscribirH,.check_notificaciones{ 
+    text-align:center;  
 }
