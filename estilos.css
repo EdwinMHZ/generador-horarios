@@ -63,3 +63,33 @@ body{
 .form_generar{
     text-align: center;
 }
+
+.btn_generar,.btn_guardar{
+    text-align: center;
+    
+}
+.tabla_horario{
+    text-align: center;
+    
+}
+
+.tabla_horario table{
+    width: 100%;
+    padding: 5px;
+    border-collapse: collapse;
+    font-size: 10px;
+}
+
+.tabla_horario th, .tabla_horario td{
+    border: 2px solid #07182c;
+    text-align: center;
+    padding: 7px;
+}
+
+.btn_generar:hover,.btn_guardar button:hover{
+    cursor: pointer;
+}
+.btn_guardar button{
+    border-radius: 3px;
+    padding: 5px;
+}

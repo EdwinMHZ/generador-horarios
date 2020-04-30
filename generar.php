@@ -43,6 +43,47 @@ while ($colum = mysqli_fetch_array($result))
     <script type="text/javascript" src="scripts.js"></script>
 </head>
 <body>
-    
+    <div class="contenedor">
+        <h2>Horarios Generados</h2>
+        <h6>Se han encontrado horarios de acuerdo a los criterios seleccionados</h6>
+        <?php
+
+            $num_horarios=3;
+            for ($i=0; $i < $num_horarios; $i++) { 
+                echo "<h4>Horario" . ($i+1) . "</h4>";
+                //echo "<div class='horarios'>";//div class horarios
+                echo "<div class='tabla_horario'>";//div class tabla_horario
+                echo "<table>";
+                echo "<tr>";
+                    echo "<th>Grupo</th>";
+                    echo "<th>Asignatura</th>";
+                    echo "<th>Profesor</th>";
+                    echo "<th>LUN</th>";
+                    echo "<th>MAR</th>";
+                    echo "<th>MIE</th>";
+                    echo "<th>JUE</th>";
+                    echo "<th>VIE</th>";
+                echo "</tr>";
+                for ($j=0; $j <$num_materias ; $j++) { 
+                    echo "<tr>";
+                        echo "<td>1CV6</td>";
+                        echo "<td>DESARROLLO DE SISTEMAS DISTRIBUIDOS</td>";
+                        echo "<td>UKRANIO CORONILLA CONTRERAS</td>";
+                        echo "<td>10:30-12:00</td>";
+                        echo "<td>8:30-10:00</td>";
+                        echo "<td>8:30-10:00</td>";
+                        echo "<td>10:30-12:00</td>";
+                        echo "<td>8:30-10:00</td>";
+                    echo "<tr>";
+                }
+                echo "</table>";
+                echo "</div>";//div class tabla_horario
+                echo "<div class='btn_guardar'>";
+                echo "<button  onclick='guardarHorario(0,". "\"$materia\""  .")'>Guardar Horario</button>";            
+                echo "</div>";
+                //echo "</div>";//div class horarios
+            }
+        ?>
+    </div>
 </body>
 </html>
