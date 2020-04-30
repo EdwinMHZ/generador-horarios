@@ -57,9 +57,11 @@
                 <form action="" method="POST">
                  <?php
                     include "conexion.php";
-                    $nivel=0;
-                    $nivel=$_POST["nivel"];
-                    if($nivel==null) $nivel=1;
+                    
+                    if(isset($_POST["enviar-nivel"]))
+                        $nivel=$_POST["nivel"];
+                    else    
+                        $nivel=1;
                     echo "<h2>Unidades de aprendizaje del nivel $nivel</h2>";
                     $consulta="select nombre from Materia where Periodo=$nivel";
                     $result = mysqli_query($connection,$consulta);
