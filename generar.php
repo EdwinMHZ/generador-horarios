@@ -1,8 +1,8 @@
 <?php
 include "conexion.php";
+require "Genetico.php";
 
-
-$consulta="select nombre from Temporal";
+$consulta="select Nombre from Temporal";
 $result = mysqli_query($connection,$consulta);
 if(!$result) 
 {
@@ -13,7 +13,7 @@ $claves=[$num_materias];
 $i=0;
 while ($colum = mysqli_fetch_array($result))
 {
-    $materia=$colum['nombre'];
+    $materia=$colum['Nombre'];
     $consulta="select clave from Materia where nombre='$materia'";
     $resultado=mysqli_query($connection,$consulta);
     if(!$resultado){
@@ -28,7 +28,10 @@ while ($colum = mysqli_fetch_array($result))
     }
 }
 
+$genetico = new Genetico($claves);
+$horarios = $genetico->getHorarios();
 
+echo "<br>";
 
 ?>
 <!DOCTYPE html>
@@ -47,9 +50,7 @@ while ($colum = mysqli_fetch_array($result))
         <h2>Horarios Generados</h2>
         <h6>Se han encontrado horarios de acuerdo a los criterios seleccionados</h6>
         <?php
-
-            $num_horarios=3;
-            for ($i=0; $i < $num_horarios; $i++) { 
+            foreach ($horarios as $i => $horario ) { 
                 echo "<h4>Horario" . ($i+1) . "</h4>";
                 //echo "<div class='horarios'>";//div class horarios
                 echo "<div class='tabla_horario'>";//div class tabla_horario
@@ -64,24 +65,66 @@ while ($colum = mysqli_fetch_array($result))
                     echo "<th>JUE</th>";
                     echo "<th>VIE</th>";
                 echo "</tr>";
-                for ($j=0; $j <$num_materias ; $j++) { 
+                $dia_hora=[5];
+                for ($j=0; $j < 5; $j++) { 
+                    $dia_hora[$j]="";
+                }
+                foreach ($horario as $m) {
                     echo "<tr>";
-                        echo "<td>1CV6</td>";
-                        echo "<td>DESARROLLO DE SISTEMAS DISTRIBUIDOS</td>";
+                        echo "<td>".$m[1]."</td>";
+                        $consulta="select nombre from Materia where clave='".$m[0]."'";
+                        $result = mysqli_query($connection,$consulta);
+                        if(!$result) 
+                        {
+                            echo "No se ha podido realizar la consulta en Materia";
+                        }
+                        else{
+                            while ($colum = mysqli_fetch_array($result))
+                            {
+                                $nombre=$colum['nombre'];
+                                echo "<td>$nombre</td>";
+                            }
+                        }
                         echo "<td>UKRANIO CORONILLA CONTRERAS</td>";
-                        echo "<td>10:30-12:00</td>";
-                        echo "<td>8:30-10:00</td>";
-                        echo "<td>8:30-10:00</td>";
-                        echo "<td>10:30-12:00</td>";
-                        echo "<td>8:30-10:00</td>";
+                        $consulta="select * from Clases where Materia_clave='".$m[0]."' and Grupo='".$m[1]."'";
+                        $result = mysqli_query($connection,$consulta);
+                        if(!$result) 
+                        {
+                            echo "No se ha podido realizar la consulta en clases";
+                        }
+                        else{
+                            while ($colum = mysqli_fetch_array($result))
+                            {
+                                $dia=$colum['Dia'];
+                                $hora=$colum['Hora'];
+                                if ($dia == "Lun") {
+                                    $dia_hora[0]=$hora;
+                                }
+                                elseif ($dia == "Mar") {
+                                    $dia_hora[1]=$hora;
+                                }
+                                elseif ($dia == "Mie") {
+                                    $dia_hora[2]=$hora;
+                                }
+                                elseif ($dia == "Jue") {
+                                    $dia_hora[3]=$hora;
+                                }
+                                else {
+                                    $dia_hora[4]=$hora;
+                                }
+                            }
+                        }
+                        for ($k=0; $k < 5; $k++) { 
+                            echo "<td>".$dia_hora[$k]."</td>";
+                            $dia_hora[$k]="";
+                        }
                     echo "<tr>";
                 }
                 echo "</table>";
                 echo "</div>";//div class tabla_horario
                 echo "<div class='btn_guardar'>";
-                echo "<button  onclick='guardarHorario(0,". "\"$materia\""  .")'>Guardar Horario</button>";            
+                echo "<button  onclick='guardarHorario(0,". json_encode($horario)  .",".$i .")'>Guardar Horario</button>";            
                 echo "</div>";
-                //echo "</div>";//div class horarios
             }
         ?>
     </div>

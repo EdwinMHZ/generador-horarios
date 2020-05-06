@@ -13,3 +13,14 @@ function agregarMateria(a,m) {
   });
   
 }
+
+function guardarHorario(a, h,num) {
+  $.ajax({
+    type: "POST",
+    url: 'ajax-horarios.php',
+    data: { accion: a, horario: h,numero:num },
+    success: function (html) {
+      alert(html);
+    }
+  });
+}
