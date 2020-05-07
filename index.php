@@ -61,7 +61,7 @@
                     <form action="" method="POST">
                      <?php
                         include "conexion.php";
-
+                        $boleta="2014170767";
                         if(isset($_POST["enviar-nivel"]))
                             $nivel=$_POST["nivel"];
                         else    
@@ -92,7 +92,7 @@
                 <?php
                     include "conexion.php";
                     
-                    $consulta="select nombre from Temporal";
+                    $consulta="select * from Temporal where Alumno='".$boleta."'";
                     $result = mysqli_query($connection,$consulta);
                     if(!$result) 
                     {
@@ -102,7 +102,7 @@
                     echo "<table>";
                     while ($colum = mysqli_fetch_array($result))
                     {
-                        $materia=$colum['nombre'];
+                        $materia=$colum['Materia'];
                         echo "<tr>";
                         echo "<td><input type='button' class='btn_quitar' onclick='agregarMateria(1,". "\"$materia\""  .")'/></td>";
                         echo "<td><h5>" . $materia . "</td></h5>";
