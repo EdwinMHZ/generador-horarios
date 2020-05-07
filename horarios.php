@@ -17,7 +17,7 @@
         <div class="centro">
             <h3>Horarios Guardados</h3>
             <h4>Selecciona el horario que deseas inscribir</h4>
-            <form action="simulacion.php" method="POST">
+            <form action="#" method="POST" id="seleccion_horarios">
                 <?php
                     include "conexion.php";
                     $dia_hora=[5];
@@ -117,8 +117,8 @@
                         echo "</table>";
                         echo "</div>";//div class tabla_horario
                         echo "<div class='btn_eliminarH'>";
-                        echo "<form action=\"\">";
-                        echo "<input type='button'  onclick='eliminarHorario("."\"$ids[$i]\"".")' value='Eliminar Horario' id='btneliminarH'>";            
+                        echo "<form action=\"\" id='form-eliminar'>";
+                        echo "<input type='button'  onclick='eliminarHorario("."\"$ids[$i]\"".")' value='Eliminar Horario' id='btneliminarH' form='form-eliminar'>";            
                         echo "</form>";
                         echo "</div>";
                     }
@@ -132,7 +132,7 @@
                     
                 </div>
                 <div class="boton_inscribir">
-                        <input type="submit" value="Inscribir Horario" id="btn_inscribir">
+                        <input type="submit" value="Inscribir Horario" id="btn_inscribir" form="seleccion_horarios">
                 </div>
             </form>
         </div>
