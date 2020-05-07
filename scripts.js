@@ -24,3 +24,28 @@ function guardarHorario(a, h,num) {
     }
   });
 }
+
+function eliminarHorario(i){
+  $.ajax({
+    type: "POST",
+    url: 'ajax-borrar-horario.php',
+    data:{id:i},
+    success:function(html) {
+      alert(html);
+      window.location.reload();
+    }
+ 
+   });
+}
+
+function alerta()
+    {
+    var mensaje;
+    var opcion = confirm("Clicka en Aceptar o Cancelar");
+    if (opcion == true) {
+        mensaje = "Has clickado OK";
+	} else {
+	    mensaje = "Has clickado Cancelar";
+	}
+	document.getElementById("ejemplo").innerHTML = mensaje;
+}

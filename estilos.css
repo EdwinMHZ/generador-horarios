@@ -116,10 +116,10 @@ body{
 }
 
 .btn_generar:hover,.btn_guardar button:hover,
-.btn_eliminarH button:hover,#btn_inscribir:hover{
+#btneliminarH:hover,#btn_inscribir:hover{
     cursor: pointer;
 }
-.btn_guardar button,.btn_eliminarH button,#btn_inscribir{
+.btn_guardar button,.btn_eliminarH button,#btn_inscribir,#btneliminarH,.btn_generar{
     border-radius: 3px;
     padding: 5px;
 }
