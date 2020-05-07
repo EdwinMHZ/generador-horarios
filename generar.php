@@ -47,6 +47,10 @@ echo "<br>";
 </head>
 <body>
     <div class="contenedor">
+        <div class="izquierda">
+            <h3>Alumno</h3>
+        </div>
+        <div class="centro">
         <h2>Horarios Generados</h2>
         <h6>Se han encontrado horarios de acuerdo a los criterios seleccionados</h6>
         <?php
@@ -118,7 +122,7 @@ echo "<br>";
                             echo "<td>".$dia_hora[$k]."</td>";
                             $dia_hora[$k]="";
                         }
-                    echo "<tr>";
+                    echo "</tr>";
                 }
                 echo "</table>";
                 echo "</div>";//div class tabla_horario
@@ -127,6 +131,13 @@ echo "<br>";
                 echo "</div>";
             }
         ?>
+        </div>
+        <div class="acceso-rapido">
+            <h4>Acceso Rápido</h4>
+            <a href="index.php">Horarios de Clase</a>
+            <br>
+            <a href="horarios.php">Horarios Guardados</a>
+        <div>
     </div>
 </body>
 </html>

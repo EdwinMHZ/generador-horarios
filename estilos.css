@@ -11,20 +11,26 @@ body{
 
 }
 
-.contenedor{
+/*.contenedor{
     background-color: white;
     width: 50%;
     height: 600px;
-    /*max-width: 1000px;*/
     margin:auto;
     overflow: scroll;
     border: 3px solid #7e7e7e;
     padding: 30px;
+}*/
+
+.contenedor{
+    margin: auto;
+    width: 80%;
+    height: 100%;
+    display: flex;
 }
 
-.contenedor div{
+/*.contenedor div{
     padding: 15px;
-}
+}*/
 
 .horarios{
     margin-top: 20px;
@@ -80,10 +86,33 @@ body{
     font-size: 10px;
 }
 
-.tabla_horario th, .tabla_horario td{
-    border: 2px solid #07182c;
+.tabla_horario th{
+    border: 2px solid white;
     text-align: center;
     padding: 7px;
+}
+.tabla_horario tr{
+    border: 2px;
+    text-align: center;
+    height: 50px;
+    
+}
+.tabla_horario tr:nth-child(odd) {
+	
+    background-color:#f2f2f2;
+	
+}
+	
+.tabla_horario tr:nth-child(even) {
+	
+    background-color:#fbfbfb;
+	
+}
+	
+
+.tabla_horario th{
+    background-color: maroon;
+    color: white;
 }
 
 .btn_generar:hover,.btn_guardar button:hover,
@@ -96,4 +125,43 @@ body{
 }
 .btn_inscribirH,.check_notificaciones{ 
     text-align:center;  
+}
+
+.acceso-rapido{
+    border: 1px solid #7e7e7e;
+    background-color: white;
+    padding: 15px;
+    font-size: 12px;
+    text-align: justify;
+    
+}
+.acceso-rapido a{
+    color: maroon;
+}
+.acceso-rapido a:hover{
+    text-decoration: none;
+}
+
+.izquierda{
+    border: 1px solid #7e7e7e;
+    background-color: white;
+    padding: 15px;
+    font-size: 16px;
+    
+}
+.centro{
+    
+    background-color: white;
+    width: 80%;
+    overflow: scroll;
+    border: 2px solid #7e7e7e;
+    padding: 30px;
+    text-align: left;
+}
+.centro div{
+    padding: 15px;
+}
+
+.boton_inscribir{
+    text-align: center;
 }
