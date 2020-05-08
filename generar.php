@@ -1,8 +1,8 @@
 <?php
 include "conexion.php";
 require "Genetico.php";
-
-$consulta="select Nombre from Temporal";
+$boleta="2014170767";
+$consulta="select * from Temporal where Alumno='".$boleta."'";
 $result = mysqli_query($connection,$consulta);
 if(!$result) 
 {
@@ -13,7 +13,7 @@ $claves=[$num_materias];
 $i=0;
 while ($colum = mysqli_fetch_array($result))
 {
-    $materia=$colum['Nombre'];
+    $materia=$colum['Materia'];
     $consulta="select clave from Materia where nombre='$materia'";
     $resultado=mysqli_query($connection,$consulta);
     if(!$resultado){
@@ -31,7 +31,6 @@ while ($colum = mysqli_fetch_array($result))
 $genetico = new Genetico($claves);
 $horarios = $genetico->getHorarios();
 
-echo "<br>";
 
 ?>
 <!DOCTYPE html>
@@ -55,6 +54,7 @@ echo "<br>";
         <h6>Se han encontrado horarios de acuerdo a los criterios seleccionados</h6>
         <?php
             foreach ($horarios as $i => $horario ) { 
+                $id=[];
                 echo "<h4>Horario" . ($i+1) . "</h4>";
                 //echo "<div class='horarios'>";//div class horarios
                 echo "<div class='tabla_horario'>";//div class tabla_horario
@@ -74,6 +74,7 @@ echo "<br>";
                     $dia_hora[$j]="";
                 }
                 foreach ($horario as $m) {
+                    $id[$m[0]]=$m[1];
                     echo "<tr>";
                         echo "<td>".$m[1]."</td>";
                         $consulta="select nombre from Materia where clave='".$m[0]."'";
@@ -124,11 +125,19 @@ echo "<br>";
                         }
                     echo "</tr>";
                 }
+                $identificador="";
+                krsort($id);
+                foreach ($id as $key => $val) {
+                    //echo "$key = $val\n";
+                    $identificador .= $key . $val;
+                }
+                //echo $identificador;
                 echo "</table>";
                 echo "</div>";//div class tabla_horario
                 echo "<div class='btn_guardar'>";
-                echo "<button  onclick='guardarHorario(0,". json_encode($horario)  .",".$i .")'>Guardar Horario</button>";            
+                echo "<button  onclick='guardarHorario(". json_encode($horario)  .",". "\"$identificador\""  .")'>Guardar Horario</button>";            
                 echo "</div>";
+                
             }
         ?>
         </div>
@@ -137,7 +146,7 @@ echo "<br>";
             <a href="index.php">Horarios de Clase</a>
             <br>
             <a href="horarios.php">Horarios Guardados</a>
-        <div>
+        </div>
     </div>
 </body>
 </html>

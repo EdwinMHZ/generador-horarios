@@ -14,11 +14,11 @@ function agregarMateria(a,m) {
   
 }
 
-function guardarHorario(a, h,num) {
+function guardarHorario(h,i) {
   $.ajax({
     type: "POST",
     url: 'ajax-horarios.php',
-    data: { accion: a, horario: h,numero:num },
+    data: { horario: h,id:i },
     success: function (html) {
       alert(html);
     }
@@ -36,16 +36,4 @@ function eliminarHorario(i){
     }
  
    });
-}
-
-function alerta()
-    {
-    var mensaje;
-    var opcion = confirm("Clicka en Aceptar o Cancelar");
-    if (opcion == true) {
-        mensaje = "Has clickado OK";
-	} else {
-	    mensaje = "Has clickado Cancelar";
-	}
-	document.getElementById("ejemplo").innerHTML = mensaje;
 }
