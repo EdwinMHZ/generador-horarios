@@ -6,7 +6,7 @@
 
 body{
     background: #bbbbbb;
-    font-family: 'Crimson Pro', serif;
+    font-family: 'PT Sans', sans-serif;
     font-size: 16px;
 
 }
@@ -20,6 +20,18 @@ body{
     border: 3px solid #7e7e7e;
     padding: 30px;
 }*/
+
+.header{
+    margin: 0px auto;
+    width: 80%;
+    height: 100px;
+    max-height: 100px;
+    display: flex;
+    background: #f2f2f2;
+    padding: 5px;
+    border-bottom: 2px solid maroon;
+    margin-bottom: 2px;
+}
 
 .contenedor{
     margin: auto;
@@ -137,6 +149,7 @@ body{
 }
 .acceso-rapido a{
     color: maroon;
+    margin-bottom: 15px;
 }
 .acceso-rapido a:hover{
     text-decoration: none;
@@ -147,12 +160,13 @@ body{
     background-color: white;
     padding: 15px;
     font-size: 16px;
+    width: 15%;
     
 }
 .centro{
     
     background-color: white;
-    width: 80%;
+    width: 75%;
     overflow: scroll;
     border: 2px solid #7e7e7e;
     padding: 30px;
@@ -164,4 +178,31 @@ body{
 
 .boton_inscribir{
     text-align: center;
+}
+
+.header img{
+    width: 120px;
+    height: 90px;
+}
+.header h2{
+    text-align: center;
+    flex: 2;
+    color: maroon;
+}
+
+.acceso-rapido ul{
+    padding-left: 5px;
+}
+
+.acceso-rapido ul li{
+    margin-bottom: 10px;
+    list-style-image: url("img/arrows.svg");
+}
+
+.izquierda h4{
+    margin-bottom: 5px;
+}
+.izquierda h5{
+    margin-top: 5px;
+    padding-left: 5px;
 }
