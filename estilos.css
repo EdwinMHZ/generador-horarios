@@ -145,8 +145,14 @@ body{
     padding: 15px;
     font-size: 12px;
     text-align: justify;
+    width: 15%;
     
 }
+
+.acceso-rapido h4{
+    font-size: 17px;
+}
+
 .acceso-rapido a{
     color: maroon;
     margin-bottom: 15px;
@@ -166,7 +172,7 @@ body{
 .centro{
     
     background-color: white;
-    width: 75%;
+    width: 70%;
     overflow: scroll;
     border: 2px solid #7e7e7e;
     padding: 30px;
