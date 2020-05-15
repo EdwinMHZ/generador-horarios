@@ -45,7 +45,7 @@
 
 
                     for ($i=0; $i <$num_horarios ; $i++) { 
-                        echo "<input type='radio' id='horario". $i ."' name='horarios' value='$i'>";
+                        echo "<input type='radio' id='horario". $i ."' name='horarios' value='$i' form='seleccion-horarios'>";
                         echo "<label for='horario". $i ."'>Horario ". ($i+1) . "</label><br>";
 
                         echo "<div class='tabla_horario'>";//div class tabla_horario
