@@ -34,11 +34,13 @@
                         <option value="inteligencia">Ingeniería en Inteligencia Artificial</option>
                         <option value="isc" selected>Ingeniería en Sistemas Computacionles</option>
                     </select>
-                    <label for="turnos">Turno</label>
-                    <select id="turnos">
-                        <option value="matutino">Matutino</option>
-                        <option value="vespertino">Vespertino</option>
-                    </select>
+                    <div class="turnos">
+                        <label for="turnos">Turno</label>
+                        <select id="turnos">
+                            <option value="matutino">Matutino</option>
+                            <option value="vespertino">Vespertino</option>
+                        </select>
+                    </div>
                     <div class="periodo">
                         <p>Seleccione el periodo</p>
                         <div>
@@ -51,20 +53,28 @@
                             <label for="p_proximo">Próximo Periodo</label>
                           </div>
                     </div>
-                    <label for="plan">Plan de Estudios</label>
-                    <select id="plan">
-                        <option value="plan2009" selected>Plan del 2009</option>
-                        <option value="plan2020">Plan del 2020</option>
-                    </select>
-                    <label for="nivel">Periodo</label>
-                    <select id="nivel" name="nivel">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                    <input type="submit" value="Visualizar" id="btn_visualizar" name="enviar-nivel">
+                    <div class="linea">
+                        <div class="plan">
+                            <label for="plan">Plan de Estudios</label>
+                            <select id="plan">
+                                <option value="plan2009" selected>Plan del 2009</option>
+                                <option value="plan2020">Plan del 2020</option>
+                            </select>
+                        </div>
+                        <div class="periodo">
+                            <label for="nivel">Periodo</label>
+                            <select id="nivel" name="nivel">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                        <div class="btn_visualizar">
+                            <input type="submit" value="Visualizar" id="btn_visualizar" name="enviar-nivel">
+                        </div>
+                    </div>
                 </form>
                 <div class="horarios">
                     <form action="" method="POST">

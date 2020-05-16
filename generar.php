@@ -41,13 +41,22 @@ $horarios = $genetico->getHorarios();
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Generador de Horarios</title>
     <link rel='stylesheet' type='text/css' media='screen' href='estilos.css'>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
     <script type="text/javascript" src="scripts.js"></script>
 </head>
 <body>
+    <div class="header">
+        <img src="img/logo-ipn.png" alt="logo-ipn">
+        <h2>ESCUELA SUPERIOR DE CÓMPUTO</h2>
+        <img src="img/logo-escom.png" alt="logo-escom">
+    </div>
     <div class="contenedor">
         <div class="izquierda">
-            <h3>Alumno</h3>
+            <h4>Alumno</h4>
+            <h5>EDWIN JAVIER MORALES HERNÁDEZ</h5>
+            <h4>Boleta</h4>
+            <h5>2014170767</h5>
         </div>
         <div class="centro">
         <h2>Horarios Generados</h2>
@@ -143,9 +152,10 @@ $horarios = $genetico->getHorarios();
         </div>
         <div class="acceso-rapido">
             <h4>Acceso Rápido</h4>
-            <a href="index.php">Horarios de Clase</a>
-            <br>
-            <a href="horarios.php">Horarios Guardados</a>
+            <ul>       
+                <li><a href="index.php">Horarios de Clase</a></li>
+                <li><a href="horarios.php">Horarios Guardados</a></li>
+            </ul>
         </div>
     </div>
 </body>
