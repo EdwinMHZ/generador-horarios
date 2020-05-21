@@ -2,7 +2,7 @@
     include "conexion.php";
 
     $id=$_POST["id"];
-    $consulta="delete from Horarios where Id_Horario='".$id."'";
+    $consulta="delete from Horarios where ID_Horario='".$id."'";
     $resultado = mysqli_query($connection,$consulta);
     if(!$resultado) 
     {

@@ -111,7 +111,7 @@
                 <?php
                     include "conexion.php";
                     $num_materias=0;
-                    $consulta="select * from Temporal where Alumno='".$boleta."'";
+                    $consulta="select * from Temporal where Alumno_Boleta='".$boleta."'";
                     $result = mysqli_query($connection,$consulta);
                     if(!$result) 
                     {
@@ -121,12 +121,20 @@
                     echo "<table>";
                     while ($colum = mysqli_fetch_array($result))
                     {
-                        $materia=$colum['Materia'];
-                        echo "<tr>";
-                        echo "<td><input type='button' class='btn_quitar' onclick='agregarMateria(1,". "\"$materia\""  .")'/></td>";
-                        echo "<td><h5>" . $materia . "</td></h5>";
-                        echo "</tr>";
-                        $num_materias++;
+                        $clave=$colum['Materia_Clave'];
+                        $consulta="select Nombre from Materia where Clave='".$clave."'";
+                        $resultado=mysqli_query($connection,$consulta);
+                        if(!$resultado){
+                            echo "No se encontro la materia";
+                        }else{
+                            $columna=mysqli_fetch_array($resultado);
+                            $materia=$columna[0];
+                            echo "<tr>";
+                            echo "<td><input type='button' class='btn_quitar' onclick='agregarMateria(1,". "\"$materia\""  .")'/></td>";
+                            echo "<td><h5>" . $materia . "</td></h5>";
+                            echo "</tr>";
+                            $num_materias++;
+                        }
                     }                  
                 
                     echo "</table>";

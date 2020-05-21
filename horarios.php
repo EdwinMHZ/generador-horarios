@@ -39,7 +39,7 @@
                     $contador=0;
                     $ids=[$num_horarios];
                     while ($colum = mysqli_fetch_array($resultado)){
-                        $ids[$contador]=$colum["Id_Horario"];
+                        $ids[$contador]=$colum["ID_Horario"];
                         $contador++;
                     }
 
@@ -60,7 +60,7 @@
                             echo "<th>JUE</th>";
                             echo "<th>VIE</th>";
                         echo "</tr>";
-                        $consulta1="select * from Horarios_Materia where Id_Horario='". $ids[$i]. "'";
+                        $consulta1="select * from Horario where ID='". $ids[$i]. "'";
                         $result1 = mysqli_query($connection,$consulta1);
                         if(!$result1) 
                         {
@@ -69,7 +69,7 @@
                         else{
                             while ($colum = mysqli_fetch_array($result1))
                             {
-                                $clave=$colum['Clave_Materia'];
+                                $clave=$colum['Materia_Clave'];
                                 $grupo=$colum['Grupo'];
                                 echo "<tr>";
                                 echo "<td>$grupo</td>";
@@ -86,7 +86,16 @@
                                         echo "<td>$nombre</td>";
                                     }
                                 }
-                                echo "<td>OLGA KOLESNIKOVA</td>";
+                                //echo "<td>OLGA KOLESNIKOVA</td>";
+                                $consulta="select Profesor from Grupo where Materia_Clave='".$clave."' and Grupo='".$grupo."'";
+                                $result=mysqli_query($connection,$consulta);
+                                if(!$result){
+                                    echo "no se ha podido realizar la consulta en grupo";
+                                }else{
+                                    $columna=mysqli_fetch_array($result);
+                                    $profesor=$columna[0];
+                                    echo "<td>$profesor</td>";
+                                }
                                 $consulta="select * from Clases where Materia_Clave='$clave' and Grupo='$grupo'";
                                 $result = mysqli_query($connection,$consulta);
                                 if(!$result) 

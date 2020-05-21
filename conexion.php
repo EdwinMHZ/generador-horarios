@@ -10,7 +10,7 @@ if(!$connection)
     echo "No se ha podido conectar con el servidor" . mysql_error();
 }
 
-$datab = "Horario";
+$datab = "SAES";
 $db = mysqli_select_db($connection,$datab);
 if (!$db)
 {

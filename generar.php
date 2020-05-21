@@ -2,7 +2,7 @@
 include "conexion.php";
 require "Genetico.php";
 $boleta="2014170767";
-$consulta="select * from Temporal where Alumno='".$boleta."'";
+$consulta="select * from Temporal where Alumno_Boleta='".$boleta."'";
 $result = mysqli_query($connection,$consulta);
 if(!$result) 
 {
@@ -13,19 +13,9 @@ $claves=[$num_materias];
 $i=0;
 while ($colum = mysqli_fetch_array($result))
 {
-    $materia=$colum['Materia'];
-    $consulta="select clave from Materia where nombre='$materia'";
-    $resultado=mysqli_query($connection,$consulta);
-    if(!$resultado){
-        echo "No se ha podido realizar la consulta";
-    }else{
-        while ($colum = mysqli_fetch_array($resultado))
-        {
-            $clave=$colum['clave'];
-            $claves[$i]=$clave;
-            $i++;
-        }
-    }
+    $clave=$colum['Materia_Clave'];
+    $claves[$i]=$clave;
+    $i++;  
 }
 
 $genetico = new Genetico($claves);
@@ -99,7 +89,21 @@ $horarios = $genetico->getHorarios();
                                 echo "<td>$nombre</td>";
                             }
                         }
-                        echo "<td>UKRANIO CORONILLA CONTRERAS</td>";
+
+                        $consulta="select Profesor from Grupo where Materia_clave='".$m[0]."' and Grupo='".$m[1]."'";
+                        $result=mysqli_query($connection,$consulta);
+                        if(!$result){
+                            echo "no se ha podido realizar la consulta en grupo";
+                        }else{
+                            $columna=mysqli_fetch_array($result);
+                            $profesor=$columna[0];
+                            echo "<td>$profesor</td>";
+                        }
+                        //echo "<td>UKRANIO CORONILLA CONTRERAS</td>";
+
+
+
+
                         $consulta="select * from Clases where Materia_clave='".$m[0]."' and Grupo='".$m[1]."'";
                         $result = mysqli_query($connection,$consulta);
                         if(!$result) 

@@ -7,7 +7,7 @@ class DB {
 	private $host = "localhost";
 	private $user = "root";
 	private $pass = "";
-	private $datab = "Horario";
+	private $datab = "SAES";
 	private $enlace;
 	# Metodos
 	function __construct() {
@@ -45,7 +45,7 @@ class DB {
         }
 	}
 	public function getNoOpcMateria($clave) {
-		$sql = "SELECT COUNT(*) as count FROM Clases WHERE Materia_Clave='$clave'";
+		$sql = "SELECT COUNT(*) as count FROM Grupo WHERE Materia_Clave='$clave'";
 		$res = mysqli_query($this->enlace, $sql);
 		$this->validarConsulta($res);
         if(mysqli_num_rows($res) > 0) {

@@ -5,33 +5,51 @@ include "conexion.php";
     $materia=$_POST["materia"];
     //echo "$materia";
     if($accion==0){
-        $consulta="select * from Temporal where Materia='$materia' and Alumno='".$boleta."'";
-        $resultado = mysqli_query($connection,$consulta);
-        $columnas = mysqli_num_rows($resultado);
         
-        if($columnas>=1){
-            echo "Esta materia ya ha sido agregada";
+        $consulta="select Clave from Materia where Nombre='". $materia."'";
+        $resultado=mysqli_query($connection,$consulta);
+        if(!$resultado){
+            echo "No se encontro una clave para esta materia";
         }else{
-            $consulta="insert into Temporal (Alumno,Materia) values('$boleta','$materia')";
-            $result = mysqli_query($connection,$consulta);
-            if(!$resultado) 
-            {
-                echo "No se ha podido realizar la consulta";
-                echo "\n$materia";
-            }else{
-                //echo "$result";
-                echo "\n$materia ha sido agregada";
+            $columna=mysqli_fetch_array($resultado);
+            $clave=$columna[0];
+            //echo "clave:".$clave;
+            $consulta="select * from Temporal where Materia_Clave='$clave' and Alumno_Boleta='".$boleta."'";
+            $resultado = mysqli_query($connection,$consulta);
+            $columnas = mysqli_num_rows($resultado);
 
+            if($columnas>=1){
+                echo "Esta materia ya ha sido agregada";
+            }else{
+                $consulta="insert into Temporal (Materia_Clave,Alumno_Boleta) values('$clave','$boleta')";
+                $result = mysqli_query($connection,$consulta);
+                if(!$resultado) 
+                {
+                    echo "No se ha podido realizar la consulta";
+                    echo "\n$materia";
+                }else{
+                    //echo "$result";
+                    echo "\n$materia ha sido agregada";
+
+                }
             }
         }
     }else{
         //echo "PROBANDO";
-        $consulta="delete from Temporal where Materia='$materia' and Alumno='".$boleta."'";
-        $resultado = mysqli_query($connection,$consulta);
+        $consulta="select Clave from Materia where Nombre='".$materia."'";
+        $resultado=mysqli_query($connection,$consulta);
         if(!$resultado){
-            echo "No se ha podido realizar la consulta";
+            echo "No se encontro la clave de la materia ".$materia;
         }else{
-            echo "$materia eliminada";
+            $columna=mysqli_fetch_array($resultado);
+            $clave=$columna[0];
+            $consulta="delete from Temporal where Materia_Clave='$clave' and Alumno_Boleta='".$boleta."'";
+            $resultado = mysqli_query($connection,$consulta);
+            if(!$resultado){
+                echo "No se ha podido realizar la consulta";
+            }else{
+                echo "$materia eliminada";
+            }
         }
 
     }

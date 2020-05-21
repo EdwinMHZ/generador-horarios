@@ -19,7 +19,7 @@ class Genetico {
 	private $opcXmateria;
 	# Metodos
 	function __construct($claveMaterias) {
-		$this->noMaxSoluciones = 5;
+		$this->noMaxSoluciones = 3;
 		$this->tamPobAcep = 1000;
 		$this->tamPobElim = 300;
 		$this->tamPoblacion = $this->tamPobAcep+$this->tamPobElim;
